@@ -6,6 +6,7 @@ body{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d2829",endColorstr="#1d2829",GradientType=1);
     color: white;
     padding: 3rem;
+    /* position: relative; */
 }
 
 *{
@@ -142,8 +143,8 @@ main h1{
 /*3D Effect*/
 .hand{
     position: absolute;
-    top: -5%;
-    right: 8%;
+    top: -1%;
+    right: 10%;
     width: 80%;
     height: 130%;
     cursor: pointer;
@@ -271,4 +272,235 @@ main h1{
     bottom: 5%;
     left: 15%;
     width: 70%;
+    opacity: .2;
 }
+
+.project_section{
+    width: 100%;
+    margin-top: 8rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project_section h3{
+    margin-bottom: 1%;
+    font-size: 5rem;
+    background-image: linear-gradient(rgb(133,133,133),rgb(255, 255, 255));
+    color: transparent;
+    background-clip: text;
+    align-items: center;
+}
+
+.slider{
+    height: var(--height);
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+}
+
+.slider .list{
+    display: flex;
+    min-width: calc(var(--width)*var(--quantity));
+    position: relative;
+}
+
+.slider .list .item {
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: calc(var(--width) * (var(--position) - 1)); /* FIXED */
+    animation: autoRun 10s linear infinite;
+    transition: filter 0.5s;
+    animation-delay: calc((10s/var(--quantity))*(var(--position) - 1) - 10s) !important;
+}
+
+
+.slider .list .item video{
+    margin-top: 4rem;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+@keyframes autoRun {
+    from{
+        left: 100%;
+    }
+    to{
+        left: calc(var(--width)*-1);
+    }
+} 
+
+.slider:hover .item{
+    animation-play-state: paused!important;
+    filter: grayscale(1);
+}
+
+.slider .item:hover{
+    filter: grayscale(0);
+    scale: 1.2;
+}
+
+.contact_section{
+    padding: 60px 0;
+    margin-top: 10rem;
+    margin-bottom: 0rem;
+}
+
+.section_header{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section_header h3{
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background-image: linear-gradient(rgb(133,133,133),rgb(255, 255, 255));
+    color: transparent;
+    background-clip: text;
+}
+
+.section_header p{
+    color: skyblue;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact_grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.info_card{
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.info_card:hover{
+    transform: translateY(-5px);
+}
+
+.info_card{
+    padding: 30px;
+}
+
+.info_card h3{
+    font-size: 1.5rem;
+    margin-bottom: 4rem;
+    color: skyblue;
+}
+
+.contact_item{
+    margin-bottom: 3rem;
+}
+
+.contact_item p{
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: skyblue;
+}
+
+.contact_item a{
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact_item a:hover{
+    color: lightgray;
+}
+
+.form_group{
+    margin-bottom: 20px;
+}
+
+.form_control{
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    color: skyblue;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    border: 1px solid #333;
+}
+
+.form_control:focus{
+    outline: none;
+    color: skyblue;
+}
+
+textarea.form_control{
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form_button{
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(124, 233, 230, 0.3);
+    color: skyblue;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form_button:hover{
+    background-color: skyblue;
+    color: black;
+}
+
+.success_mess{
+    background-color: rgba(16, 185, 129, 0.2);
+    color: lightgreen;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+    display: none;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 2rem 4rem;
+    background-color: rgba(124, 233, 230, 0.1);
+    justify-content: center;
+    align-items: center;
+}
+
+.box_icon{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.box_icon a i{
+    font-size: 1rem;
+    transition: color 0.5s;
+} 
+
+.link_icon {
+    width: 45px;
+    height: 45px;
+    transition: filter 0.3s ease;
+  }
+  
+  .link_icon:hover {
+    filter: brightness(0) saturate(100%) invert(54%) sepia(74%) saturate(304%) hue-rotate(153deg) brightness(100%) contrast(94%);
+  }
